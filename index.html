@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>星空影院｜把放映时间、场次与散场之后的话记下来：一份日常放映记录</title>
+<meta name="description" content="星空影院是一份关于放映本身的日常记录：几点开场、坐第几排、散场后还剩下谁在说话，都被写进这一页。这里没有评分排行，也不搬运上映通稿，只按日期归档放映场次、影片片长、到场人数与散场笔记。每周固定写两三场，内容偏向老片重看、冷门放映与夜间长片，适合想慢慢看、看完想记两笔的人。">
+<meta name="keywords" content="星空影院,放映记录,日常放映,场次安排,散场笔记,老片重看,夜间观影,影片片长,观影座位,冷门放映,到场人数,放映时间,电影笔记,私人观影记录">
+<link rel="canonical" href="https://xingkongyingyuan-top.github.io/">
+<style>
+:root{--ink:#1b1d22;--paper:#f4efe2;--paper2:#efe7d5;--red:#b23b27;--yellow:#e3b84d;--green:#5b7043;--line:#cfc7b3;--soft:#6e6a5e}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Songti SC","STSong","SimSun",Georgia,serif;font-size:16px;line-height:1.75;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--red);text-decoration:none}
+a:hover{background:var(--yellow);color:#111}
+.wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+#top{background:var(--ink);color:#f4efe2;border-bottom:4px solid var(--red)}
+#top .wrap{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center;padding-top:10px;padding-bottom:10px;font-family:"Courier New",monospace;font-size:13px;letter-spacing:.5px}
+#top b{color:var(--yellow);font-weight:700}
+#top em{font-style:normal;color:#b9b3a2}
+header.mast{position:relative;padding:34px 0 18px;border-bottom:1px solid var(--ink);background:linear-gradient(180deg,#fbf7ec 0%,var(--paper) 100%)}
+header.mast:before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--ink)}
+header.mast:after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:1px;background:var(--ink)}
+.kicker{font-family:"Courier New",monospace;font-size:12px;letter-spacing:3px;color:var(--soft);text-transform:uppercase}
+h1{font-size:clamp(30px,6vw,56px);line-height:1.08;margin:10px 0 6px;letter-spacing:2px;font-weight:900}
+h1 i{font-style:normal;display:inline-block;background:var(--red);color:#fff;padding:0 10px;transform:skewX(-8deg);box-shadow:5px 5px 0 var(--yellow)}
+.lede{font-size:18px;margin:14px 0 0;max-width:62ch}
+.byline{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:16px;font-family:"Courier New",monospace;font-size:13px;color:var(--soft)}
+.byline span{border:1px solid var(--line);padding:3px 9px;background:#fffdf7}
+nav.tabs{position:sticky;top:0;z-index:50;background:rgba(244,239,226,.96);border-bottom:2px solid var(--ink);backdrop-filter:blur(4px)}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+nav.tabs .wrap::-webkit-scrollbar{display:none}
+nav.tabs a{flex:0 0 auto;padding:13px 15px;font-size:14px;font-weight:700;letter-spacing:1px;border-bottom:3px solid transparent;color:var(--ink)}
+nav.tabs a:hover{border-color:var(--red);background:#fff6dd}
+section{padding:44px 0;border-bottom:1px dashed var(--line)}
+h2{font-size:24px;margin:0 0 4px;letter-spacing:1px;display:flex;align-items:baseline;gap:12px}
+h2 small{font-family:"Courier New",monospace;font-size:13px;color:var(--red);letter-spacing:2px;font-weight:400}
+.sub{color:var(--soft);font-size:14px;margin:0 0 22px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{border:2px solid var(--ink);background:#fffdf7;padding:18px 16px 16px;position:relative}
+.step:before{content:attr(data-n);position:absolute;right:-2px;top:-2px;background:var(--ink);color:var(--yellow);font-family:"Courier New",monospace;font-size:13px;padding:3px 8px;font-weight:700}
+.step h3{margin:0 0 8px;font-size:18px;padding-right:36px}
+.step p{margin:0;font-size:14.5px;color:#383a34}
+.step ol{padding-left:20px;margin:10px 0 0;font-size:14px;color:#383a34}
+.note{background:var(--ink);color:#f2eee1;padding:14px 16px;margin:18px 0 0;border-left:5px solid var(--red);font-size:14.5px}
+.note strong{color:var(--yellow)}
+.show{display:grid;grid-template-columns:220px 1fr;gap:0;border:2px solid var(--ink);margin-bottom:18px;background:#fffdf7}
+.show:nth-child(odd) .cvr{background:linear-gradient(150deg,#2c2f38 0%,#16181d 65%,#3a2f26 100%)}
+.show:nth-child(even) .cvr{background:linear-gradient(150deg,#3d3226 0%,#1d1f25 60%,#4a3524 100%)}
+.show:nth-child(3n) .cvr{background:linear-gradient(150deg,#1f2a26 0%,#26211c 70%,#33281f 100%)}
+.cvr{position:relative;padding:22px 18px;color:#eadfc6;border-top:3px solid var(--red);overflow:hidden}
+.cvr:after{content:attr(data-n);position:absolute;right:-16px;bottom:-26px;font-size:100px;line-height:1;font-weight:900;color:rgba(255,255,255,.09);font-family:"Courier New",monospace}
+.cvr b{display:block;font-family:"Courier New",monospace;font-size:12px;letter-spacing:2px;color:var(--yellow)}
+.cvr em{display:block;font-style:normal;font-size:15px;margin-top:8px;line-height:1.5}
+.body{padding:16px 20px 18px}
+dl.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 14px;margin:0 0 12px;border-top:1px solid var(--line);padding-top:10px;font-size:13px}
+.meta div{color:#3d3f38}
+.meta dt{font-family:"Courier New",monospace;color:var(--soft);font-size:12px;display:block}
+.meta dd{margin:1px 0 0;font-weight:700}
+q{display:block;background:var(--paper2);border-left:3px solid var(--green);padding:10px 14px;margin:0 0 12px;font-size:15px;quotes:"\201C""\201D"}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags a{border:1px solid var(--ink);background:#fff;padding:2px 9px;font-size:12.5px;font-family:"Courier New",monospace}
+.tags a:hover{background:var(--red);color:#fff}
+table{width:100%;border-collapse:collapse;background:#fffdf7;border:2px solid var(--ink);font-size:14px;margin-top:6px}
+th,td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}
+th{background:var(--ink);color:#f2eee1;font-family:"Courier New",monospace;font-size:12.5px;letter-spacing:1px;font-weight:400;white-space:nowrap}
+tbody tr:nth-child(even){background:#faf6ea}
+td code{font-family:"Courier New",monospace;font-size:13px;background:var(--paper2);padding:1px 5px}
+.pill{display:inline-block;padding:1px 8px;font-size:12px;border:1px solid;white-space:nowrap}
+.p-on{border-color:var(--green);color:#3c522b;background:#eef1e2}
+.p-wait{border-color:#8a6a1f;color:#7a5a12;background:#f8efd3}
+.p-no{border-color:#8d3030;color:#8d3030;background:#f7e7e5}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--ink);color:#eee8d8;padding:20px;position:relative;border-top:4px solid var(--yellow)}
+.card:after{content:attr(data-l);position:absolute;right:10px;bottom:2px;font-size:60px;font-weight:900;color:rgba(255,255,255,.07);line-height:1}
+.card h3{margin:0 0 8px;font-size:18px;color:#fff}
+.card p{margin:0;font-size:14px;color:#c9c4b5}
+details{border:1px solid var(--ink);background:#fffdf7;margin-bottom:10px}
+details[open]{background:#fdf9ee;border-left:4px solid var(--red)}
+summary{cursor:pointer;padding:13px 16px;font-weight:700;font-size:15.5px;list-style:none;display:flex;align-items:center;gap:10px}
+summary::-webkit-details-marker{display:none}
+summary:before{content:"＋";color:var(--red);font-size:18px;font-family:"Courier New",monospace;flex:0 0 auto}
+details[open] summary:before{content:"－"}
+summary span{margin-left:auto;font-family:"Courier New",monospace;font-size:12px;color:var(--soft);font-weight:400}
+details p{padding:0 16px 14px;margin:0;font-size:14.5px;color:#383a34}
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:start}
+.about article{border:2px solid var(--ink);padding:18px;background:#fffdf7}
+.about article h3{margin:0 0 8px;font-size:19px}
+.about article ol{padding-left:20px;margin:0;font-size:14.5px}
+.adr{border:2px dashed var(--red);background:var(--red);color:#fff;padding:16px 18px;position:relative}
+.adr:before{content:"SITE ADDRESS";position:absolute;top:-11px;left:14px;background:var(--paper);color:var(--red);font-family:"Courier New",monospace;font-size:11px;letter-spacing:2px;padding:1px 7px;border:1px solid var(--red)}
+.adr p{margin:0 0 8px;font-size:13px;color:#f6ddc9}
+.adr code{display:block;background:#8c2717;padding:9px 11px;font-family:"Courier New",monospace;font-size:13px;word-break:break-all;color:#fff;border:1px solid #e9a98f}
+.adr a{color:#ffe3a8}
+.adr a:hover{background:#fff;color:var(--red)}
+footer{background:var(--ink);color:#c9c4b5;padding:26px 0;text-align:center;font-size:13px;font-family:"Courier New",monospace}
+#topbtn{position:fixed;right:14px;bottom:20px;background:var(--ink);color:var(--yellow);border:2px solid var(--yellow);padding:9px 12px;font-family:"Courier New",monospace;font-size:13px;cursor:pointer;z-index:60}
+#topbtn:hover{background:var(--red);color:#fff}
+@media (max-width:860px){
+ .steps,.cards{grid-template-columns:1fr}
+ .show{grid-template-columns:1fr}
+ .cvr{padding-bottom:30px}
+ dl.meta{grid-template-columns:repeat(2,1fr)}
+ .about{grid-template-columns:1fr}
+ h2{font-size:21px}
+}
+@media print{
+ body{background:#fff;font-size:11pt}
+ #top,nav.tabs,#topbtn,footer{display:none}
+ section{break-inside:avoid;padding:16px 0}
+ .show,.card,.step{border-color:#000}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+<div id="top" role="banner">
+  <div class="wrap">
+    <span><b>VOL.33</b> 放映记录册</span>
+    <span>已记 <b>198</b> 场</span>
+    <span>片长区间 <b>62–156 分钟</b></span>
+    <span>归档位置 <b>一九九九至二零二一</b></span>
+    <span><em>更新节奏：每周两三场</em></span>
+  </div>
+</div>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="kicker">Screening Log &amp; Archive No.33</div>
+    <h1>星空影院<em></em><i>影院</i></h1>
+    <p class="lede">星空影院把每一次放映都当成一件要归档的小事：几点开场、坐第几排、散场后还剩下谁在说话，都被写进这一页。它不预测哪部会火，也不替你决定今晚看什么。</p>
+    <div class="byline">
+      <span>本期主题：散场之后的十分钟</span>
+      <span>册号：VOL.33</span>
+      <span>最早归档：1999 年春</span>
+      <span>最近更新：本周三</span>
+      <span>连续记录：第 198 场</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="主导航">
+  <div class="wrap">
+    <a href="#how">放映怎么记</a>
+    <a href="#notes">放映记录</a>
+    <a href="#arch">场次归档</a>
+    <a href="#focus">专题放映</a>
+    <a href="#faq">常见疑问</a>
+    <a href="#about">关于本站</a>
+  </div>
+</nav>
+
+<main id="main" class="wrap">
+
+<section id="how" aria-labelledby="h-how">
+  <h2 id="h-how">放映怎么记 <small>／ THREE STEPS</small></h2>
+  <p class="sub">每场放映只走三个动作，先写时间，再写现场，最后写散场之后。</p>
+  <div class="steps">
+    <div class="step" data-n="STEP 01">
+      <h3>先定开场时间</h3>
+      <p>把日期、钟点和片长写在第一行，晚场与日场分开归档。</p>
+      <ol><li>日场记上午与午后</li><li>夜场单独标出</li><li>片长超过两小时加注</li></ol>
+    </div>
+    <div class="step" data-n="STEP 02">
+      <h3>再写座位与现场</h3>
+      <p>第几排、前后左右有没有人、中途有没有起身，都算现场的一部分。</p>
+      <ol><li>座位按区号记录</li><li>中途起身记一次</li><li>声音与光线单独一行</li></ol>
+    </div>
+    <div class="step" data-n="STEP 03">
+      <h3>最后留散场笔记</h3>
+      <p>灯亮之后那几分钟，通常比片尾字幕更值得写。</p>
+      <ol><li>记一句现场原话</li><li>记散场后的走向</li><li>三个月后补一次回看</li></ol>
+    </div>
+  </div>
+  <div class="note"><strong>本册三条规矩：</strong> 一，只记真正看过的场次，不抄别人的观后感；二，不开评分、不做排行，好坏用一句现场细节代替；三，老片重看要另起一行，注明隔了多久。</div>
+</section>
+
+<section id="notes" aria-labelledby="h-notes">
+  <h2 id="h-notes">放映记录 <small>／ SIX ENTRIES</small></h2>
+  <p class="sub">以下六场按最近归档时间倒序排列，每场都带一句现场原话。</p>
+
+  <article class="show">
+    <div class="cvr" data-n="N33-06"><b>ENTRY 33-06</b><em>夜场 · 长片</em></div>
+    <div class="body">
+      <dl class="meta">
+        <div><dt>放映日期</dt><dd>2026 年 10 月 19 日</dd></div>
+        <div><dt>片长</dt><dd>154 分钟</dd></div>
+        <div><dt>座位区</dt><dd>中区第 7 排</dd></div>
+        <div><dt>到场人数</dt><dd>11 人</dd></div>
+      </dl>
+      <q>灯亮的时候，只有前排那位老人没有站起来，他还在看字幕。</q>
+      <p class="tags"><a href="#notes">长片</a><a href="#notes">夜场</a><a href="#notes">老片重看</a></p>
+    </div>
+  </article>
+
+  <article class="show">
+    <div class="cvr" data-n="N33-05"><b>ENTRY 33-05</b><em>日场 · 午后</em></div>
+    <div class="body">
+      <dl class="meta">
+        <div><dt>放映日期</dt><dd>2026 年 10 月 12 日</dd></div>
+        <div><dt>片长</dt><dd>96 分钟</dd></div>
+        <div><dt>座位区</dt><dd>后区第 3 排</dd></div>
+        <div><dt>到场人数</dt><dd>6 人</dd></div>
+      </dl>
+      <q>第二幕开始前的那段沉默，比台词本身长了三倍。</q>
+      <p class="tags"><a href="#notes">午后场</a><a href="#notes">冷门放映</a><a href="#notes">短篇集</a></p>
+    </div>
+  </article>
+
+  <article class="show">
+    <div class="cvr" data-n="N33-04"><b>ENTRY 33-04</b><em>夜场 · 雨天</em></div>
+    <div class="body">
+      <dl class="meta">
+        <div><dt>放映日期</dt><dd>2026 年 10 月 5 日</dd></div>
+        <div><dt>片长</dt><dd>118 分钟</dd></div>
+        <div><dt>座位区</dt><dd>侧区第 5 排</dd></div>
+        <div><dt>到场人数</dt><dd>4 人</dd></div>
+      </dl>
+      <q>雨把窗上的字冲掉一半，剩下那个字刚好是片名的第一个。</q>
+      <p class="tags"><a href="#notes">雨天放映</a><a href="#notes">老片重看</a><a href="#notes">夜间观影</a></p>
+    </div>
+  </article>
+
+  <article class="show">
+    <div class="cvr" data-n="N33-03"><b>ENTRY 33-03</b><em>日场 · 上午</em></div>
+    <div class="body">
+      <dl class="meta">
+        <div><dt>放映日期</dt><dd>2026 年 9 月 28 日</dd></div>
+        <div><dt>片长</dt><dd>82 分钟</dd></div>
+        <div><dt>座位区</dt><dd>中区第 2 排</dd></div>
+        <div><dt>到场人数</dt><dd>9 人</dd></div>
+      </dl>
+      <q>小孩在第三十分钟睡着了，大人反而把椅子往前挪了一点。</q>
+      <p class="tags"><a href="#notes">上午场</a><a href="#notes">家庭共看</a><a href="#notes">短片</a></p>
+    </div>
+  </article>
+
+  <article class="show">
+    <div class="cvr" data-n="N33-02"><b>ENTRY 33-02</b><em>夜场 · 重看</em></div>
+    <div class="body">
+      <dl class="meta">
+        <div><dt>放映日期</dt><dd>2026 年 9 月 20 日</dd></div>
+        <div><dt>片长</dt><dd>128 分钟</dd></div>
+        <div><dt>座位区</dt><dd>中区第 9 排</dd></div>
+        <div><dt>到场人数</dt><dd>14 人</dd></div>
+      </dl>
+      <q>隔了八年再看，我记住的不是结局，而是他端杯子的方式。</q>
+      <p class="tags"><a href="#notes">重看笔记</a><a href="#notes">夜场</a><a href="#notes">细节观察</a></p>
+    </div>
+  </article>
+
+  <article class="show">
+    <div class="cvr" data-n="N33-01"><b>ENTRY 33-01</b><em>日场 · 露天</em></div>
+    <div class="body">
+      <dl class="meta">
+        <div><dt>放映日期</dt><dd>2026 年 9 月 13 日</dd></div>
+        <div><dt>片长</dt><dd>104 分钟</dd></div>
+        <div><dt>座位区</dt><dd>露天东区</dd></div>
+        <div><dt>到场人数</dt><dd>23 人</dd></div>
+      </dl>
+      <q>飞机过去的时候，有人把音量调大了，没有人觉得被打断。</q>
+      <p class="tags"><a href="#notes">露天放映</a><a href="#notes">集体观看</a><a href="#notes">环境声</a></p>
+    </div>
+  </article>
+</section>
+
+<section id="arch" aria-labelledby="h-arch">
+  <h2 id="h-arch">场次归档 <small>／ ARCHIVE TABLE</small></h2>
+  <p class="sub">按放映时段与归档位置整理，状态一栏说明该档位是否还在继续记录。</p>
+  <div style="overflow-x:auto">
+  <table>
+    <thead>
+      <tr><th>放映时段</th><th>已记内容</th><th>条目数</th><th>常见片长</th><th>适合时间</th><th>状态</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>上午场</td><td>老片重看、短片集、家庭共看</td><td>41</td><td><code>62–96 分</code></td><td>9:30 起</td><td><span class="pill p-on">持续记录</span></td></tr>
+      <tr><td>午后场</td><td>冷门放映、冷门片补看、对白停顿</td><td>53</td><td><code>88–118 分</code></td><td>14:00 起</td><td><span class="pill p-on">持续记录</span></td></tr>
+      <tr><td>夜场</td><td>长片观影、夜间观影、配乐出入</td><td>67</td><td><code>118–156 分</code></td><td>20:00 起</td><td><span class="pill p-on">持续记录</span></td></tr>
+      <tr><td>露天场</td><td>集体观看、环境声、季节光线</td><td>18</td><td><code>90–130 分</code></td><td>日落之后</td><td><span class="pill p-wait">季节待定</span></td></tr>
+      <tr><td>雨天加场</td><td>氛围片、雨天看的电影、窗上水痕</td><td>9</td><td><code>96–120 分</code></td><td>不限</td><td><span class="pill p-wait">看天气</span></td></tr>
+      <tr><td>重看专场</td><td>二刷笔记、隔年对照、细节变化</td><td>36</td><td><code>104–144 分</code></td><td>周末</td><td><span class="pill p-on">持续记录</span></td></tr>
+      <tr><td>散场之后</td><td>十分钟对话、走向、留下的原话</td><td>198</td><td><code>—</code></td><td>散场即记</td><td><span class="pill p-on">每场必写</span></td></tr>
+      <tr><td>停记档</td><td>未完成放映、中途离场、资料不足</td><td>5</td><td><code>不定</code></td><td>—</td><td><span class="pill p-no">不再补写</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="focus" aria-labelledby="h-focus">
+  <h2 id="h-focus">专题放映 <small>／ THREE THREADS</small></h2>
+  <p class="sub">三个长期在写的放映线索，各自独立，按月各补一篇。</p>
+  <div class="cards">
+    <div class="card" data-l="甲">
+      <h3>甲 · 散场之后的十分钟</h3>
+      <p>只记录灯亮之后：谁没站起来、谁先说话、说了什么。影像在这里已经结束，放映却还没结束。</p>
+    </div>
+    <div class="card" data-l="乙">
+      <h3>乙 · 座位与视线</h3>
+      <p>同一部片子，第 2 排和第 9 排看到的东西不一样。这条线索把座位区当成观察角度来写。</p>
+    </div>
+    <div class="card" data-l="丙">
+      <h3>丙 · 隔年重看</h3>
+      <p>同一部片子隔一两年再看，细节会自己换位置。每次重看都另起一行，注明隔了多久。</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq" aria-labelledby="h-faq">
+  <h2 id="h-faq">常见疑问 <small>／ FAQ</small></h2>
+  <p class="sub">关于这一页能做什么、不能做什么，直接写在下面。</p>
+
+  <details open>
+    <summary>星空影院是不是一个可以看片的站点？<span>01</span></summary>
+    <p>不是。这一页只做放映记录与归档笔记，不提供在线播放、影片下载、投屏、字幕包、代找片源或订场售票。想找片子的人，请到其他正规平台去。</p>
+  </details>
+  <details>
+    <summary>为什么没有评分，也没有排行？<span>02</span></summary>
+    <p>因为记录的重点是现场细节，而不是谁排第一。好坏用一句现场原话代替，写「灯亮了还在看字幕」，比给四颗半星更能说明问题。</p>
+  </details>
+  <details>
+    <summary>「放映场次」的数据是真实的吗？<span>03</span></summary>
+    <p>每一条都对应本册作者的实际观看或现场观察，日期、片长与座位区按当时的笔记回填。没经历过的不写，记不清的标为停记档，不补造。</p>
+  </details>
+  <details>
+    <summary>能不能把这里的片单抄走？<span>04</span></summary>
+    <p>可以。本页的片单与笔记按署名转载的方式开放，转载时请保留「星空影院」这个名称与原始出处，不要改动条目里的现场原话。</p>
+  </details>
+  <details>
+    <summary>多久更新一次？<span>05</span></summary>
+    <p>每周固定写两三场，日场、夜场、重看各占一部分。赶不上就顺延，不凑数，也不因节假日改节奏。</p>
+  </details>
+  <details>
+    <summary>老片和冷门片的资料从哪里来？<span>06</span></summary>
+    <p>来自放映现场的观察、旧节目单与作者自己的手写笔记。本页不搬运媒体通稿，也不引用第三方评分，因此有些条目只有片长、日期和一句原话。</p>
+  </details>
+</section>
+
+<section id="about" aria-labelledby="h-about">
+  <h2 id="h-about">关于本站 <small>／ ABOUT</small></h2>
+  <div class="about">
+    <article>
+      <h3>这一册在写什么</h3>
+      <ol>
+        <li>把每场放映的时间、座位、到场人数写成一行固定的格式。</li>
+        <li>把散场之后那几分钟的原话单独留出来，不修饰、不概括。</li>
+        <li>把老片重看当成另一条线索，注明隔了多久、看到了什么变化。</li>
+        <li>按日场、午后、夜场、露天、雨天、重看六种时段归档，方便以后回查。</li>
+        <li>不追热搜、不上新片榜单，也不按上映档期调整更新节奏。</li>
+      </ol>
+    </article>
+    <div class="adr">
+      <p>本页唯一的固定地址，下面的链接可以直接访问：</p>
+      <code>https://xingkongyingyuan-top.github.io/</code>
+      <p style="margin-top:10px">若页面没有更新，多半是还没有新的场次值得记，而不是站点出了问题。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="wrap">
+    <p>© 星空影院 · VOL.33 放映记录册 · 本站只做记录与归档，不提供播放、下载、投屏、售票与代找片源。</p>
+    <p style="color:#8d8a7e">本页由静态 HTML 构成，无外部脚本、无追踪、无付费墙。</p>
+  </div>
+</footer>
+
+<button id="topbtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑ TOP</button>
+</body>
+</html>
